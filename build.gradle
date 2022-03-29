@@ -27,8 +27,6 @@ allure {
 }
 
 dependencies {
-    implementation 'org.projectlombok:lombok:1.18.20'
-    implementation 'org.projectlombok:lombok:1.18.20'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     testImplementation 'com.codeborne:selenide:6.3.5'
     testImplementation 'mysql:mysql-connector-java:8.0.28'
@@ -49,3 +47,7 @@ test {
     systemProperty 'db.password', System.getProperty('db.password', 'pass')
     systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:8080')
     }
+
+configurations {
+    create("testCompile")
+}
