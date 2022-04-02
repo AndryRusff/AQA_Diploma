@@ -42,3 +42,7 @@ test {
     systemProperty 'db.password', System.getProperty('db.password', 'pass')
     systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:8080')
 }
+
+configurations {
+    create("testCompile")
+}
