@@ -18,9 +18,12 @@
 Количество тест-кейсов - 24, % успешных/упавших: в зависимости от прогона *50/50 (12 упавших тест-кейсов)* или *45.83/54,17 (13 упавших тест-кейсов)*.
 Различия обусловлены разницей в генерируемых данных (библиотека facker) для заполнения формы.
 
-<details><summary> **Отчет  Allure:** </summary>
+<details><summary> Отчет  Allure: </summary>
+  
 ![50%](https://user-images.githubusercontent.com/92083580/161401582-8c5932fe-4943-4ead-920b-83286b10a900.PNG)
+  
 ![My SQL](https://user-images.githubusercontent.com/92083580/161401578-db1ad78c-b174-472b-9c78-251c88ac2a7d.PNG)
+
 </details>
 
 
