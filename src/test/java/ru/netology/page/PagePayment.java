@@ -9,8 +9,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class PagePayment {
     private SelenideElement cardNumberField = $("[placeholder = '0000 0000 0000 0000']");
@@ -26,11 +25,10 @@ public class PagePayment {
     private SelenideElement cardExpired = $(withText("Истёк срок действия карты"));
     private SelenideElement wrongFormat = $(".input__sub");
     private SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
-    private SelenideElement invalidFormatCard = $$("span.input__sub").get(0);
-    private SelenideElement invalidMonth = $$("span.input__sub").get(1);
-    private SelenideElement invalidYear = $$("span.input__sub").get(2);
-    private SelenideElement invalidOwner = $$("span.input__sub").get(3);
-    private SelenideElement invalidCVV = $$("span.input__sub").get(4);
+    private SelenideElement invalidMonth = $x("//*[text()='Месяц']/..//*[@class='input__sub']");
+    private SelenideElement invalidYear = $x("//*[text()='Год']/..//*[@class='input__sub']");
+    private SelenideElement invalidOwner = $x("//*[text()='Владелец']/..//*[@class='input__sub']");
+    private SelenideElement invalidCVV = $x("//*[text()='CVC/CVV']/..//*[@class='input__sub']");
 
     public void fillingForm(DataHelper.CardInfo cardInfo) {
         cardNumberField.setValue(cardInfo.getCardNumber());
@@ -75,9 +73,6 @@ public class PagePayment {
         requiredField.shouldBe(Condition.visible);
     }
 
-    public void checkInvalidCardNumberT(DataHelper.CardInfo invalidValue) {
-        invalidFormatCard.shouldHave(text("Неверный формат"));
-    }
 
     public void checkInvalidMonthT() {
         invalidMonth.shouldHave(text("Неверный формат"));
